@@ -44,47 +44,139 @@ const useStyles = makeStyles((theme: Theme) =>
      */
     homeContainer: {
       display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'center',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      flexDirection: 'column',
       width: '100%',
       minHeight: '100vh',
       background: '#E5E5E5',
       padding: '34px',
+      position: 'relative',
+      [theme.breakpoints.down(1060)]: {
+        padding: '15px 19px',
+      },
+    },
+
+    homeTitleUserName: {
+      margin: '0',
+      fontWeight: 400,
+      fontSize: '24px',
+      color: '#595959',
+      marginBottom: '20px',
+      [theme.breakpoints.down(1016)]: {
+        fontSize: '18px',
+      },
     },
 
     /**
      * Page Home/components
      */
 
-    containerHorizontalCards: {
+    contentContainerCards: {
       display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      [theme.breakpoints.down(1016)]: {
+        flexDirection: 'column',
+      },
+    },
+
+    containerHorizontalCards: {
+      display: 'block',
       alignItems: 'center',
       flexDirection: 'column',
       height: 'auto',
       width: '70%',
       maxWidth: '844px',
       padding: '0',
+      scrollBehavior: 'smooth',
+      [theme.breakpoints.down(1016)]: {
+        width: '100%',
+        marginBottom: '20px',
+        maxWidth: '100%',
+      },
     },
 
     cardHorizontal: {
       display: 'flex',
-      overflowX: 'hidden',
+      alignItems: 'center',
+      justifyContent: 'center',
       width: '100%',
       height: '263px',
       background: '#ffff',
       padding: '24px',
       margin: '0',
-
+      position: 'relative',
       '&:nth-child(1)': {
         marginBottom: '20px',
       },
+      [theme.breakpoints.down('xs')]: {
+        overflow: 'auto',
+      },
+
+      [theme.breakpoints.down(1016)]: {
+        background: 'none',
+        minHeight: '200px',
+        padding: '0',
+      },
     },
+    cardHorizontalTitle: {
+      fontWeight: 700,
+      fontSize: '14px',
+      color: '#595959',
+      position: 'absolute',
+      left: '24px',
+      top: '24px',
+      [theme.breakpoints.down(1016)]: {
+        left: '0',
+      },
+    },
+
     cardVertical: {
+      display: 'flex',
+      flexDirection: 'column',
       width: '268px',
       height: '546px',
       background: '#ffff',
-      padding: '24px',
       marginLeft: '20px',
+      overflow: 'visible',
+
+      [theme.breakpoints.down(660)]: {
+        width: '100%',
+        height: 'auto',
+        background: 'none',
+        margin: 0,
+        maxWidth: '100%',
+      },
+    },
+
+    divResultsSeeAllLink: {
+      width: '100%',
+      top: '0',
+      background: '#fff',
+      position: 'sticky',
+      padding: '20px 24px 12px 24px',
+      margin: '0',
+      color: '#595959',
+
+      [theme.breakpoints.down(660)]: {
+        padding: '4px',
+        background: 'none',
+      },
+    },
+
+    buttonArrowRight: {
+      display: 'none',
+      top: 'auto',
+      color: '#E8E8E8',
+      margin: '0 0 0 4px',
+      [theme.breakpoints.down(1270)]: {
+        display: 'flex',
+      },
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+      },
     },
 
     /**
@@ -97,6 +189,11 @@ const useStyles = makeStyles((theme: Theme) =>
       padding: '7px 11px 15px 11px ',
       margin: '0 10px',
       borderRadius: '2px',
+      cursor: 'pointer',
+
+      [theme.breakpoints.down(1016)]: {
+        background: '#fff',
+      },
     },
     cardInformationsTitle: {
       fontSize: '16px',
@@ -109,7 +206,8 @@ const useStyles = makeStyles((theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       color: '#fff',
-      width: '106.63px',
+      minWidth: '106.63px',
+      maxWidth: '118.63px',
       height: '16px',
       borderRadius: '2px',
     },
@@ -161,6 +259,128 @@ const useStyles = makeStyles((theme: Theme) =>
     cardInformationsDetailsTimeQuestionsIcon: {
       fontSize: '14px',
       margin: '4px 4px 0 0',
+    },
+
+    cardInformationsDetailsProgressContent: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      width: '100%',
+      color: '#757575',
+      fontSize: '12px',
+      margin: '8px 0 0 0',
+      background: 'blue',
+      height: '15px',
+      fontWeight: 400,
+
+      p: {
+        margin: '0',
+        color: '#757575',
+      },
+    },
+
+    /**
+     * Card Informations Result with Questions Progress
+     */
+
+    cardInformationsResultContainer: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      width: '100%',
+      color: '#757575',
+      boxShadow: '0px 0px 5px rgba(0, 0, 0, 0.15)',
+      fontSize: '12px',
+      margin: '8px 0 0 0',
+      padding: '8px',
+      fontWeight: 400,
+      overflow: 'visible',
+      p: {
+        margin: '0',
+        color: '#757575',
+      },
+      [theme.breakpoints.down(660)]: {
+        height: '135px',
+        margin: '8px 10px',
+        background: '#ffff',
+        overflow: 'visible',
+        marginLeft: 'auto',
+        width: '215px',
+
+        '&:nth-child(1)': {
+          // marginLeft: '280px',
+        },
+      },
+    },
+
+    cardInformationsResultTitle: {
+      textAlign: 'start',
+      fontSize: '16px',
+      color: '#000',
+      marginTop: '6px',
+      marginRight: 'auto',
+      fontWeight: 700,
+    },
+
+    cardInformationsResultDetailsProgress: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      color: '#757575',
+      fontSize: '12px',
+      fontWeight: 400,
+
+      p: {
+        margin: '0',
+        color: '#757575',
+      },
+    },
+
+    /**
+     * Page Exam
+     */
+
+    examContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      minHeight: '100vh',
+      background: '#E5E5E5',
+    },
+
+    /**
+     * Page Exam Components / SubHeader
+     */
+    subHeaderComponent: {
+      display: 'flex',
+      height: '76px',
+      width: '100%',
+      padding: '0 35px',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      background: '#ffff',
+      color: '#757575',
+      position: 'relative',
+    },
+
+    buttonSubHeaderTimeIsVisible: {
+      color: '#FA558F',
+      width: '30px',
+      position: 'relative',
+    },
+    buttonSubHeaderSendExam: {
+      width: 'auto',
+      border: '1px solid #FA558F',
+      color: '#FA558F',
+      fontSize: '14px',
+      textTransform: 'none',
+      padding: '8px 12px 8px 30px',
+    },
+    buttonSubHeaderSendExamIcon: {
+      margin: '0 0 0 11px',
     },
   }),
 );

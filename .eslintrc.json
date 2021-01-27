@@ -28,6 +28,7 @@
     "@typescript-eslint/ban-types": "off",
     "prettier/prettier": "error",
     "react/prop-types": "off",
+    "no-console":"off",
 
     "no-use-before-define": "off",
 

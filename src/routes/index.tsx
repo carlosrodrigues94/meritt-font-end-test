@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
+import Exam from '../pages/Exam';
 import Home from '../pages/Home';
 import history from '../services/history';
 
@@ -9,7 +10,8 @@ const Routes: React.FC = () => {
   return (
     <Router history={history}>
       <Switch>
-        <Route path="" component={Home} />
+        <Route path="/" exact component={Home} />
+        <Route path="/exam" exact component={Exam} />
       </Switch>
     </Router>
   );
