@@ -44,6 +44,8 @@ const useStyles = makeStyles((theme: Theme) =>
      */
     homeContainer: {
       display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'center',
       width: '100%',
       minHeight: '100vh',
       background: '#E5E5E5',
@@ -56,18 +58,22 @@ const useStyles = makeStyles((theme: Theme) =>
 
     containerHorizontalCards: {
       display: 'flex',
+      alignItems: 'center',
       flexDirection: 'column',
+      height: 'auto',
       width: '70%',
+      maxWidth: '844px',
+      padding: '0',
     },
 
     cardHorizontal: {
       display: 'flex',
-      overflowX: 'auto',
+      overflowX: 'hidden',
       width: '100%',
-      maxWidth: '844px',
       height: '263px',
       background: '#ffff',
       padding: '24px',
+      margin: '0',
 
       '&:nth-child(1)': {
         marginBottom: '20px',
