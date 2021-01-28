@@ -363,13 +363,76 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
       background: '#ffff',
       color: '#757575',
-      position: 'relative',
+      position: 'sticky',
+      top: '64px',
+
+      [theme.breakpoints.down('sm')]: {
+        top: '56px',
+        height: '56px',
+        padding: '0 15px',
+      },
+    },
+
+    examTitleName: {
+      fontSize: '20px',
+      fontWeight: 'bold',
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+      },
+    },
+    examTitleInitials: {
+      display: 'none',
+      fontWeight: 'bold',
+
+      fontSize: '16px',
+      [theme.breakpoints.down('sm')]: {
+        display: 'flex',
+      },
+    },
+
+    contentButtonAndTimeIsVisible: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100%',
+      transition: 'all 0.3s',
+    },
+
+    contentTimeVisible: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '22px',
+      width: '60px',
+      margin: '0 0 0 5px',
+      transition: 'background 0.1s',
+      [theme.breakpoints.down('sm')]: {
+        width: '40px',
+      },
     },
 
     buttonSubHeaderTimeIsVisible: {
       color: '#FA558F',
       width: '30px',
       position: 'relative',
+      [theme.breakpoints.down('sm')]: {
+        minWidth: '15px',
+        width: '20px',
+        padding: '8px 16px',
+      },
+    },
+
+    visibilityAndQuestionsIcon: {
+      fontSize: '24px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '18px',
+      },
+    },
+
+    textButtonsQuestionsAndTimeVisible: {
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '12px',
+      },
     },
     buttonSubHeaderSendExam: {
       width: 'auto',
@@ -378,9 +441,29 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: '14px',
       textTransform: 'none',
       padding: '8px 12px 8px 30px',
+
+      [theme.breakpoints.down('sm')]: {
+        border: '0',
+        minWidth: '0',
+        padding: '8px 16px',
+        b: {
+          display: 'none',
+        },
+      },
+    },
+
+    buttonSendExamText: {
+      [theme.breakpoints.down('sm')]: {
+        display: 'none',
+      },
     },
     buttonSubHeaderSendExamIcon: {
       margin: '0 0 0 11px',
+      fontSize: '22px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+        margin: '0',
+      },
     },
   }),
 );

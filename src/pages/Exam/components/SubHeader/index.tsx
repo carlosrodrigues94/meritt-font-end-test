@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button } from '@material-ui/core';
+import { Box, Button, Typography } from '@material-ui/core';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
@@ -7,35 +7,53 @@ import SendIcon from '@material-ui/icons/Send';
 import { useStyles } from '../../../../hooks/useStyles';
 import SubHeaderQuestionSelector from '../../../../components/SubHeaderQuestionSelector';
 
-const SubHeader: React.FC = () => {
+interface ISubHeaderProps {
+  examTitleName: string;
+  examTitleInitials: string;
+}
+
+const SubHeader: React.FC<ISubHeaderProps> = ({
+  examTitleName,
+  examTitleInitials,
+}) => {
   const classes = useStyles();
   const [timeIsVisible, setTimeIsVisible] = useState(true);
   const [isOpenQuestionsSelector, setIsOpenQuestionsSelector] = useState(false);
   return (
     <Box component="div" className={classes.subHeaderComponent}>
-      <h2>Linguagens e Códigos</h2>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          height: '100%',
-          transition: 'all 0.3s',
-        }}
-      >
+      <Typography variant="h2" className={classes.examTitleName}>
+        {examTitleName}
+      </Typography>
+      <Typography variant="h2" className={classes.examTitleInitials}>
+        {examTitleInitials}
+      </Typography>
+      <Box component="div" className={classes.contentButtonAndTimeIsVisible}>
         <Button
           type="button"
           onClick={() => setTimeIsVisible(!timeIsVisible)}
           className={classes.buttonSubHeaderTimeIsVisible}
         >
           {timeIsVisible ? (
-            <VisibilityOffIcon style={{ fontSize: '24px' }} />
+            <VisibilityOffIcon className={classes.visibilityAndQuestionsIcon} />
           ) : (
-            <VisibilityIcon style={{ fontSize: '24px' }} />
+            <VisibilityIcon className={classes.visibilityAndQuestionsIcon} />
           )}
         </Button>
-        <p style={{ opacity: timeIsVisible ? 1 : 0 }}>00:30:45</p>
-      </div>
+        <Box
+          component="div"
+          className={classes.contentTimeVisible}
+          style={{
+            background: timeIsVisible ? 'none' : '#F0F2F5',
+          }}
+        >
+          <p
+            style={{ opacity: timeIsVisible ? 1 : 0 }}
+            className={classes.textButtonsQuestionsAndTimeVisible}
+          >
+            00:30:45
+          </p>
+        </Box>
+      </Box>
       <div
         style={{
           display: 'flex',
@@ -50,23 +68,19 @@ const SubHeader: React.FC = () => {
           className={classes.buttonSubHeaderTimeIsVisible}
           onClick={() => setIsOpenQuestionsSelector(!isOpenQuestionsSelector)}
         >
-          <ViewModuleIcon style={{ fontSize: '24px' }} />
+          <ViewModuleIcon className={classes.visibilityAndQuestionsIcon} />
         </Button>
         <SubHeaderQuestionSelector
-          questionsQuantity={45}
           isOpen={isOpenQuestionsSelector}
           onClickClose={() => {
             setIsOpenQuestionsSelector(!isOpenQuestionsSelector);
           }}
         />
-        <p>Questões</p>
+        <p className={classes.textButtonsQuestionsAndTimeVisible}>Questões</p>
       </div>
       <Button type="button" className={classes.buttonSubHeaderSendExam}>
-        <b>Entregar Prova</b>
-        <SendIcon
-          style={{ fontSize: '24px' }}
-          className={classes.buttonSubHeaderSendExamIcon}
-        />
+        <b className={classes.buttonSendExamText}>Entregar Prova</b>
+        <SendIcon className={classes.buttonSubHeaderSendExamIcon} />
       </Button>
     </Box>
   );

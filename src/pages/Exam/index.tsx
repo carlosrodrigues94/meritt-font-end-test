@@ -7,7 +7,7 @@ const Exam: React.FC = () => {
   const classes = useStyles();
   return (
     <>
-      <SubHeader />
+      <SubHeader examTitleInitials="LC" examTitleName="Linguagens e Códigos" />
       <Box component="div" className={classes.examContainer}>
         teste
       </Box>

@@ -113,6 +113,25 @@ export const Container = styled.div<IContainerProps>`
       transform: scale(0);
     }
   }
+
+  @media (max-width: 960px) {
+    top: 68px;
+  }
+
+  @media (max-width: 600px) {
+    top: 60px;
+  }
+
+  @media (max-width: 460px) {
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+  }
+  @media (max-width: 340px) {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 15px;
+  }
 `;
 
 export const ContentButtonsQuestions = styled.div`
@@ -172,5 +191,21 @@ export const Button = styled.button<IButtonProps>`
         }
       }
     }
+  }
+`;
+export const BackgroundDarken = styled.div`
+  display: flex;
+  position: fixed;
+  top: 140px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(89, 89, 89, 0.6);
+
+  @media (max-width: 960px) {
+    top: 120px;
+  }
+  @media (max-width: 600px) {
+    top: 112px;
   }
 `;
