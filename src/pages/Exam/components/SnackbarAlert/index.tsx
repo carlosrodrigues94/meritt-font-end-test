@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Alert, AlertProps } from '@material-ui/lab';
+import { Alert } from '@material-ui/lab';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import { Button } from '@material-ui/core';
