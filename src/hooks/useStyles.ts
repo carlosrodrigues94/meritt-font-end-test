@@ -349,6 +349,12 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'flex-start',
       minHeight: '100vh',
       background: '#E5E5E5',
+      width: '100%',
+      padding: '25px 34px',
+
+      [theme.breakpoints.down(700)]: {
+        padding: '19px',
+      },
     },
 
     /**
@@ -363,14 +369,51 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-between',
       background: '#ffff',
       color: '#757575',
-      position: 'sticky',
+      position: 'fixed',
       top: '64px',
+      zIndex: 2,
 
       [theme.breakpoints.down('sm')]: {
-        top: '56px',
-        height: '56px',
+        top: '60px',
+        height: '60px',
         padding: '0 15px',
       },
+
+      [theme.breakpoints.down(540)]: {
+        top: '50px',
+      },
+    },
+
+    containerLineProgress: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: '100%',
+      height: '5px',
+      position: 'fixed',
+      top: '140px',
+      padding: 0,
+      zIndex: 2,
+
+      [theme.breakpoints.down('sm')]: {
+        top: '115px',
+      },
+      [theme.breakpoints.down(540)]: {
+        top: '109px',
+      },
+    },
+    contentLineProgress: {
+      display: 'flex',
+      justifyContent: 'flex-start',
+      height: '100%',
+      width: '100%',
+      background: '#757575',
+    },
+    lineProgress: {
+      display: 'flex',
+      height: '100%',
+      background: '#FA558F',
+      transition: 'all 1s',
     },
 
     examTitleName: {
@@ -465,6 +508,111 @@ const useStyles = makeStyles((theme: Theme) =>
         margin: '0',
       },
     },
+
+    /**
+     * Container Questions
+     *
+     */
+
+    buttonThreeDotsAnswer: {
+      mibWidth: 0,
+      minHeight: 0,
+      color: '#FA558F',
+      margin: '0 0 0 auto',
+    },
+
+    menuButtonThreeDots: {
+      margin: '0 0 0 70px',
+      [theme.breakpoints.down('md')]: {
+        margin: '0 40px 50px 0',
+      },
+    },
+    blackMenuBackgroundScreen: {
+      display: 'none',
+      [theme.breakpoints.down('sm')]: {
+        display: 'flex',
+
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'rgba(89, 89, 89, 0.22)',
+        zIndex: 2,
+      },
+    },
+
+    containerButtonsNavigation: {
+      display: 'flex',
+      width: '100%',
+      justifyContent: 'center',
+      padding: 0,
+      margin: '30px 0',
+    },
+
+    buttonNavigatePageBack: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      minWidth: '112px',
+      height: '32px',
+      background: 'none',
+      fontSize: '14px',
+      color: '#FA558F',
+      border: '1px solid #FA558F',
+      padding: '8px 30px 8px 10px',
+      margin: '0 10px 0 0',
+
+      b: {
+        display: 'flex',
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        padding: '11px 4px',
+      },
+    },
+    buttonNavigatePageNext: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-evenly',
+      minWidth: '112px',
+      height: '32px',
+      background: '#FA558F',
+      fontSize: '14px',
+      border: '1px solid #FA558F',
+      color: '#FFF',
+      padding: '8px 10px 8px 30px',
+      margin: '0 0 0 10px',
+
+      '&:hover': {
+        color: '#FA558F',
+      },
+
+      [theme.breakpoints.down('sm')]: {
+        padding: '11px 4px',
+      },
+    },
+
+    buttonNavigateText: {
+      fontWeight: 400,
+      fontSize: '14px',
+      textTransform: 'none',
+    },
+    buttonNavigateIcon: {
+      fontSize: '16px',
+    },
+
+    containerBookmark: {
+      display: 'flex',
+
+      width: '100%',
+      justifyContent: 'space-between',
+    },
+    questionNumber: {},
+
+    buttonBookmark: {},
+
+    bookmarkIconQuestion: {},
   }),
 );
 export { useStyles };

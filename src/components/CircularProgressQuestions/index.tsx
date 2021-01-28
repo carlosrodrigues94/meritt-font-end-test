@@ -4,22 +4,12 @@ import {
   CircularProgressbarWithChildren,
   buildStyles,
 } from 'react-circular-progressbar';
+import { calculatePercentage } from '../../utils/calculatePercentage';
 
 interface ICircularProgressQuestions {
   questionsFinished: number;
   questionsTotal: number;
 }
-
-const calculatePercentage = (
-  partialValue: number,
-  totalValue: number,
-): number => {
-  const calculated = (100 * partialValue) / totalValue;
-
-  const calculatedNumber = Number(calculated.toFixed(0));
-
-  return calculatedNumber;
-};
 
 const CircularProgressQuestions: React.FC<ICircularProgressQuestions> = ({
   questionsFinished,
