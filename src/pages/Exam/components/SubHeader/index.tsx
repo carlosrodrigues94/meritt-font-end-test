@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Box, Button, Typography } from '@material-ui/core';
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import SendIcon from '@material-ui/icons/Send';
-import { useStyles } from '../../../../hooks/useStyles';
 import SubHeaderQuestionSelector from '../../../../components/SubHeaderQuestionSelector';
+import { StylesContext } from '../../../../context/StylesContext';
 
 interface ISubHeaderProps {
   examTitleName: string;
@@ -18,7 +18,8 @@ const SubHeader: React.FC<ISubHeaderProps> = ({
   examTitleInitials,
   progress,
 }) => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
+
   const [timeIsVisible, setTimeIsVisible] = useState(true);
   const [isOpenQuestionsSelector, setIsOpenQuestionsSelector] = useState(false);
   return (

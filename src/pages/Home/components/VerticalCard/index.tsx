@@ -1,11 +1,12 @@
 import { Box } from '@material-ui/core';
-import React from 'react';
-import { useStyles } from '../../../../hooks/useStyles';
+import React, { useContext } from 'react';
+import { StylesContext } from '../../../../context/StylesContext';
 
 import { ContainerCardsScrolled } from './styles';
 
 const VerticalCard: React.FC = ({ children }) => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
+
   return (
     <Box component="div" className={classes.cardVertical}>
       <div className={classes.divResultsSeeAllLink}>

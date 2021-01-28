@@ -1,7 +1,7 @@
 import { Box, Typography } from '@material-ui/core';
-import React from 'react';
-import { useStyles } from '../../../../hooks/useStyles';
+import React, { useContext } from 'react';
 import CircularProgressQuestions from '../../../../components/CircularProgressQuestions';
+import { StylesContext } from '../../../../context/StylesContext';
 
 const badgeColors = {
   purple: '#5653FF',
@@ -27,7 +27,8 @@ const CardResultsInformations: React.FC<ICardResultsInformationsProps> = ({
   questionsFinished,
   questionsTotal,
 }) => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
+
   return (
     <Box component="div" className={classes.cardInformationsResultContainer}>
       <Box

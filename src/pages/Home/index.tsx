@@ -1,13 +1,14 @@
 import { Box, Typography } from '@material-ui/core';
-import React from 'react';
-import { useStyles } from '../../hooks/useStyles';
+import React, { useContext } from 'react';
+import { StylesContext } from '../../context/StylesContext';
 import CardInformations from './components/CardInformations';
 import CardResultsInformations from './components/CardResultsInformations ';
 import HorizontalCard from './components/HorizontalCard';
 import VerticalCard from './components/VerticalCard';
 
 const Home: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
+
   return (
     <>
       <Box component="div" className={classes.homeContainer}>

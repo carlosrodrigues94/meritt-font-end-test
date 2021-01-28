@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import { useStyles } from '../../hooks/useStyles';
+import { StylesContext } from '../../context/StylesContext';
 
 const Header: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
 
   return (
     <AppBar position="static" className={classes.headerComponent}>

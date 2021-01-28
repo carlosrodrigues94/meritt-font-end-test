@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Alert } from '@material-ui/lab';
 import Snackbar from '@material-ui/core/Snackbar';
 import CloseIcon from '@material-ui/icons/Close';
 import { Button } from '@material-ui/core';
-import { useStyles } from '../../../../hooks/useStyles';
+import { StylesContext } from '../../../../context/StylesContext';
 
 interface ISnackbarAlert {
   onClose: () => void;
@@ -12,7 +12,7 @@ interface ISnackbarAlert {
 }
 
 const SnackbarAlert: React.FC<ISnackbarAlert> = ({ isOpen, onClose }) => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
 
   return (
     <Snackbar

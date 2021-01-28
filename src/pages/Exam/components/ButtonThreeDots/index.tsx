@@ -1,7 +1,7 @@
 import { Box, Button, Menu, MenuItem } from '@material-ui/core';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import { useStyles } from '../../../../hooks/useStyles';
+import { StylesContext } from '../../../../context/StylesContext';
 
 interface IButtonThreeDotsProps {
   onClickUnMarkOption: () => void;
@@ -16,7 +16,7 @@ const ButtonThreeDots: React.FC<IButtonThreeDotsProps> = ({
   textBtn1,
   textBtn2,
 }) => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const refButton = useRef<HTMLButtonElement>(null);

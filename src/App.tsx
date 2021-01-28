@@ -5,15 +5,18 @@ import Routes from './routes';
 import 'react-circular-progressbar/dist/styles.css';
 import Header from './components/Header';
 import { ExamProvider } from './context/ExamContext';
+import { StylesProvider } from './context/StylesContext';
 
 const App: React.FC = () => {
   return (
     <ExamProvider>
-      <BrowserRouter>
-        <Header />
-        <Routes />
-      </BrowserRouter>
-      <CssBaseline />
+      <StylesProvider>
+        <BrowserRouter>
+          <Header />
+          <Routes />
+        </BrowserRouter>
+        <CssBaseline />
+      </StylesProvider>
     </ExamProvider>
   );
 };

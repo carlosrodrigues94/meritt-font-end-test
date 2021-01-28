@@ -1,8 +1,8 @@
 import { Button, Typography } from '@material-ui/core';
-import React, { useCallback, useRef } from 'react';
+import React, { useCallback, useContext, useRef } from 'react';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
-import { useStyles } from '../../../../hooks/useStyles';
 import { ContentScrollingCardInformations } from './styles';
+import { StylesContext } from '../../../../context/StylesContext';
 
 interface IHorizontalCard {
   containerText: string;
@@ -12,7 +12,7 @@ const HorizontalCard: React.FC<IHorizontalCard> = ({
   children,
   containerText,
 }) => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
 
   const refHorizontalCard = useRef<HTMLDivElement>(null);
 

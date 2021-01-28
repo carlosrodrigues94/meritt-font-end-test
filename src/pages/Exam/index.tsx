@@ -8,7 +8,6 @@ import KeyboardArrowLeftIcon from '@material-ui/icons/KeyboardArrowLeft';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 
-import { useStyles } from '../../hooks/useStyles';
 import SubHeader from './components/SubHeader';
 import { ExamContext, IQuestion } from '../../context/ExamContext';
 import { ContentQuestion, Label } from './styles';
@@ -17,6 +16,7 @@ import landscapeImg from '../../assets/landscapeImg.jpg';
 import ButtonThreeDots from './components/ButtonThreeDots';
 import { calculatePercentage } from '../../utils/calculatePercentage';
 import SnackbarAlert from './components/SnackbarAlert';
+import { StylesContext } from '../../context/StylesContext';
 
 interface IQuestionAnswered {
   id: string;
@@ -24,8 +24,8 @@ interface IQuestionAnswered {
 }
 
 const Exam: React.FC = () => {
-  const classes = useStyles();
   const { questions } = useContext(ExamContext);
+  const { classes } = useContext(StylesContext);
 
   const [page, setPage] = useState(0);
   const [isOpenAlert, setIsOpenAlert] = useState({

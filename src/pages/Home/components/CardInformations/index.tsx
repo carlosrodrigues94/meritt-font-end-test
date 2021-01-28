@@ -1,9 +1,9 @@
 import { Box, Typography } from '@material-ui/core';
-import React, { useCallback } from 'react';
+import React, { useCallback, useContext } from 'react';
 import WatchLaterIcon from '@material-ui/icons/WatchLater';
 import ViewModuleIcon from '@material-ui/icons/ViewModule';
 import { useHistory } from 'react-router-dom';
-import { useStyles } from '../../../../hooks/useStyles';
+import { StylesContext } from '../../../../context/StylesContext';
 
 const badgeColors = {
   purple: '#5653FF',
@@ -36,7 +36,7 @@ const CardInformations: React.FC<ICardInformationsProps> = ({
   isDisabled = false,
   hideProgressBar = false,
 }) => {
-  const classes = useStyles();
+  const { classes } = useContext(StylesContext);
   const history = useHistory();
   const handleClickCard = useCallback(() => {
     history.push('/exam');
