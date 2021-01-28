@@ -142,7 +142,6 @@ const Exam: React.FC = () => {
     const questionsArray = [questionChoosed];
     if (!questionsArray.length) return;
     setQuestionsInPage(questionsArray);
-    console.log(questions);
   }, [questions, page]);
 
   return (
@@ -201,7 +200,6 @@ const Exam: React.FC = () => {
                       disabled={answersIdIgonored.includes(answer.id)}
                       onChange={() => {
                         handleAnswerQuestion(answer.id_question, answer.id);
-                        console.log('deu change no input');
                       }}
                     />
                     {questionsAnswered.find(

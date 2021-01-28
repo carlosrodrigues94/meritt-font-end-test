@@ -38,7 +38,6 @@ const SubHeaderQuestionSelector: React.FC<ISubHeaderQuestionSelectorProps> = ({
             <Button
               type="button"
               key={question.id}
-              onClick={() => console.log('clicou')}
               isSelected={question.isSelected}
               isMarked={question.isMarked}
               isCompleted={question.isCompleted}

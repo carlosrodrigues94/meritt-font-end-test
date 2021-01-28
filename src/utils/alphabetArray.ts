@@ -27,6 +27,4 @@ const alphabetArray: string[] = [
   'Z',
 ];
 
-console.log(alphabetArray.length);
-
 export default alphabetArray;

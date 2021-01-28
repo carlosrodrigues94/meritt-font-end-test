@@ -65,8 +65,6 @@ const ExamProvider: React.FC = ({ children }) => {
         const { answers } = exam[0].questions[item];
         const answersIds = Object.keys(answers).map(id => id);
 
-        console.log('answersIds', answersIds);
-
         const answersArray: IAnswer[] = answersIds.map(answerId => ({
           ...answers[answerId],
           id: answerId,
