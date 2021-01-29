@@ -43,6 +43,7 @@ interface IRootObject {
 interface IExamContext {
   questions: IQuestion[];
   getQuestions: () => void;
+  apiLoading: boolean;
 }
 
 const getExam = async (): Promise<IRootObject[] | undefined> => {
@@ -62,8 +63,10 @@ const ExamContext = createContext<IExamContext>({} as IExamContext);
 const ExamProvider: React.FC = ({ children }) => {
   // const [exam, setExam] = useState<IRootObject[]>([]);
   const [questions, setQuestions] = useState<IQuestion[]>([]);
+  const [apiLoading, setApiLoading] = useState(false);
 
   const getQuestions = useCallback(async () => {
+    setApiLoading(true);
     const exam = await getExam();
 
     if (!Array.isArray(exam) || !exam) return [];
@@ -95,10 +98,11 @@ const ExamProvider: React.FC = ({ children }) => {
     });
 
     setQuestions(questionsArray);
+    setApiLoading(false);
   }, []);
 
   return (
-    <ExamContext.Provider value={{ questions, getQuestions }}>
+    <ExamContext.Provider value={{ questions, getQuestions, apiLoading }}>
       {children}
     </ExamContext.Provider>
   );
