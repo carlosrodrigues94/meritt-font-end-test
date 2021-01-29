@@ -9,8 +9,6 @@ const Header: React.FC = () => {
   const { classes } = useContext(StylesContext);
   const { apiLoading } = useContext(ExamContext);
 
-  console.log('apiloading', apiLoading);
-
   return (
     <AppBar position="static" className={classes.headerComponent}>
       <Toolbar>

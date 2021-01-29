@@ -68,24 +68,16 @@ const ExamProvider: React.FC = ({ children }) => {
   const getQuestions = useCallback(async () => {
     setApiLoading(true);
     const exam = await getExam();
-    console.log('aqui 1', exam);
 
     if (!exam || !exam.length || !exam[0]) {
       throw new Error('Houve um erro eu buscar os dados da api');
     }
 
-    console.log('aqui 2');
-
     const questionsIdsMaped = Object.keys(exam[0].questions).map(item => item);
-    console.log('aqui 3');
 
     const questionsArray: IQuestion[] = questionsIdsMaped.map(item => {
-      console.log('aqui 4');
-
       const { answers } = exam[0].questions[item];
       const answersIds = Object.keys(answers).map(id => id);
-
-      console.log('aqui 5');
 
       const answersArray: IAnswer[] = answersIds.map(answerId => ({
         ...answers[answerId],
@@ -94,8 +86,6 @@ const ExamProvider: React.FC = ({ children }) => {
       }));
 
       const { id_group, question, type, ref } = exam[0].questions[item];
-
-      console.log('aqui 6');
 
       const questionParsed: IQuestion = {
         id_group,
@@ -108,7 +98,6 @@ const ExamProvider: React.FC = ({ children }) => {
 
       return questionParsed;
     });
-    console.log('aqui 7');
 
     setQuestions(questionsArray);
     setApiLoading(false);
