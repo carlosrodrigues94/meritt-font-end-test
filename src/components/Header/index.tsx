@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import { useHistory } from 'react-router-dom';
 import { StylesContext } from '../../context/StylesContext';
 import { ExamContext } from '../../context/ExamContext';
 
 const Header: React.FC = () => {
+  const history = useHistory();
   const { classes } = useContext(StylesContext);
   const { apiLoading } = useContext(ExamContext);
 
@@ -17,6 +19,7 @@ const Header: React.FC = () => {
           className={classes.headerBurguerButton}
           color="inherit"
           aria-label="menu"
+          onClick={() => history.push('/')}
         >
           <MenuIcon className={classes.headerBurgerIcon} />
         </IconButton>
