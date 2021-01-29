@@ -9,18 +9,18 @@ This is a little application that consumes an api to get questions and answers o
 ## Tools
 
 * ![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
-* <b>:atom_symbol:&nbsp;React-JS</b>
-* <b>:purple_heart:&nbsp;Material-UI</b>
-* <b>:nail_care:&nbsp;Styled Components</b>
+* <b>:atom_symbol:$~$React-JS</b>
+* <b>:purple_heart:$~$Material-UI</b>
+* <b>:nail_care:$~$Styled Components</b>
 
 ## Implementations
 
-* <b>:high_brightness:&nbsp;Context-API</b>
-* <b>:iphone:&nbsp;Responsivity</b>
-* <b>:tada:&nbsp;Deployment</b>
-* <b>:envelope_with_arrow:&nbsp;Api Consuming</b>
-* <b>:anchor: &nbsp;Hooks</b>
-* <b>:children_crossing:&nbsp;Routes</b>
+* <b>:high_brightness:$~$Context-API</b>
+* <b>:iphone:$~$Responsivity</b>
+* <b>:tada:$~$Deployment</b>
+* <b>:envelope_with_arrow:$~$Api Consuming</b>
+* <b>:anchor: $~$Hooks</b>
+* <b>:children_crossing:$~$Routes</b>
 
 
 
