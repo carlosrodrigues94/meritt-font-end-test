@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import React, { createContext, useCallback, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useState } from 'react';
 import api from '../services/api';
 
 import { Event, Exam } from '../types/types';
