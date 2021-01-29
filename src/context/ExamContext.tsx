@@ -41,6 +41,7 @@ interface IRootObject {
 
 interface IExamContext {
   questions: IQuestion[];
+  getQuestions: () => void;
 }
 
 const ExamContext = createContext<IExamContext>({} as IExamContext);
@@ -49,7 +50,7 @@ const ExamProvider: React.FC = ({ children }) => {
   // const [exam, setExam] = useState<IRootObject[]>([]);
   const [questions, setQuestions] = useState<IQuestion[]>([]);
 
-  const getExam = useCallback(async () => {
+  const getQuestions = useCallback(async () => {
     try {
       const response: AxiosResponse<IRootObject[]> = await api.get('/proofs');
 
@@ -93,12 +94,8 @@ const ExamProvider: React.FC = ({ children }) => {
     return [];
   }, []);
 
-  useEffect(() => {
-    getExam();
-  }, [getExam]);
-
   return (
-    <ExamContext.Provider value={{ questions }}>
+    <ExamContext.Provider value={{ questions, getQuestions }}>
       {children}
     </ExamContext.Provider>
   );

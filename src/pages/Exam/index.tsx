@@ -24,7 +24,7 @@ interface IQuestionAnswered {
 }
 
 const Exam: React.FC = () => {
-  const { questions } = useContext(ExamContext);
+  const { questions, getQuestions } = useContext(ExamContext);
   const { classes } = useContext(StylesContext);
 
   const [page, setPage] = useState(0);
@@ -143,6 +143,10 @@ const Exam: React.FC = () => {
     if (!questionsArray.length) return;
     setQuestionsInPage(questionsArray);
   }, [questions, page]);
+
+  useEffect(() => {
+    getQuestions();
+  }, [getQuestions]);
 
   return (
     <>
