@@ -70,7 +70,9 @@ const ExamProvider: React.FC = ({ children }) => {
     const exam = await getExam();
     console.log('aqui 1');
 
-    if (!Array.isArray(exam) || !exam) return [];
+    if (!exam) {
+      throw new Error('Houve um erro eu buscar os dados da api');
+    }
     console.log('aqui 2');
 
     const questionsIdsMaped = Object.keys(exam[0].questions).map(item => item);
