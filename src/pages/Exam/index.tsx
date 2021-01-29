@@ -148,6 +148,10 @@ const Exam: React.FC = () => {
     getQuestions();
   }, [getQuestions]);
 
+  useEffect(() => {
+    console.log('questions', questions);
+  }, [questions]);
+
   return (
     <>
       <SubHeader

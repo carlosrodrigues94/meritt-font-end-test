@@ -88,7 +88,7 @@ const ExamProvider: React.FC = ({ children }) => {
 
       setQuestions(questionsArray);
     } catch (err) {
-      console.log('err');
+      console.log('err', err);
     }
 
     return [];
