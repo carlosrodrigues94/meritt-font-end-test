@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+console.log('eviroment', process.env.REACT_APP_API_URL);
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
