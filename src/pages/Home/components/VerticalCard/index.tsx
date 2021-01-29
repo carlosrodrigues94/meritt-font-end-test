@@ -13,7 +13,7 @@ const VerticalCard: React.FC = ({ children }) => {
         <p style={{ margin: '0' }}>
           <b>Seus resultados (6)</b>
           <a
-            href="http://localhost:3000"
+            href={window.location.href}
             rel="host-address"
             style={{ margin: '0 0 0 30px', color: '#FA558F' }}
           >
