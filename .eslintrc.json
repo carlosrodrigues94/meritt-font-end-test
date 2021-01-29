@@ -29,6 +29,7 @@
     "prettier/prettier": "error",
     "react/prop-types": "off",
     "no-console": "off",
+    "consistent-return":"off",
 
     "react/jsx-props-no-spreading": "off",
 

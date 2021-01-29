@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { AxiosResponse } from 'axios';
 import React, { createContext, useCallback, useState } from 'react';
 import api from '../services/api';
@@ -44,6 +45,18 @@ interface IExamContext {
   getQuestions: () => void;
 }
 
+const getExam = async (): Promise<IRootObject[] | undefined> => {
+  let response: AxiosResponse<IRootObject[]>;
+  try {
+    response = await api.get('/proofs');
+  } catch (err) {
+    console.log('err', err);
+    return;
+  }
+
+  return response.data;
+};
+
 const ExamContext = createContext<IExamContext>({} as IExamContext);
 
 const ExamProvider: React.FC = ({ children }) => {
@@ -51,47 +64,37 @@ const ExamProvider: React.FC = ({ children }) => {
   const [questions, setQuestions] = useState<IQuestion[]>([]);
 
   const getQuestions = useCallback(async () => {
-    try {
-      const response: AxiosResponse<IRootObject[]> = await api.get('/proofs');
+    const exam = await getExam();
 
-      const exam = response.data;
+    if (!Array.isArray(exam) || !exam) return [];
 
-      if (!Array.isArray(exam) || !exam) return [];
+    const questionsIdsMaped = Object.keys(exam[0].questions).map(item => item);
 
-      const questionsIdsMaped = Object.keys(exam[0].questions).map(
-        item => item,
-      );
+    const questionsArray: IQuestion[] = questionsIdsMaped.map(item => {
+      const { answers } = exam[0].questions[item];
+      const answersIds = Object.keys(answers).map(id => id);
 
-      const questionsArray: IQuestion[] = questionsIdsMaped.map(item => {
-        const { answers } = exam[0].questions[item];
-        const answersIds = Object.keys(answers).map(id => id);
+      const answersArray: IAnswer[] = answersIds.map(answerId => ({
+        ...answers[answerId],
+        id: answerId,
+        questionId: item,
+      }));
 
-        const answersArray: IAnswer[] = answersIds.map(answerId => ({
-          ...answers[answerId],
-          id: answerId,
-          questionId: item,
-        }));
+      const { id_group, question, type, ref } = exam[0].questions[item];
 
-        const { id_group, question, type, ref } = exam[0].questions[item];
+      const questionParsed: IQuestion = {
+        id_group,
+        question,
+        type,
+        ref,
+        answers: answersArray,
+        questionId: item,
+      };
 
-        const questionParsed: IQuestion = {
-          id_group,
-          question,
-          type,
-          ref,
-          answers: answersArray,
-          questionId: item,
-        };
+      return questionParsed;
+    });
 
-        return questionParsed;
-      });
-
-      setQuestions(questionsArray);
-    } catch (err) {
-      console.log('err', err);
-    }
-
-    return [];
+    setQuestions(questionsArray);
   }, []);
 
   return (
