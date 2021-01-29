@@ -1,6 +1,40 @@
-# Getting Started with Create React App
+# Meritt Job Test
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Details
+
+This is a little application that consumes an api to get questions and answers of a exam.
+
+## Tools
+
+![ts](https://badgen.net/badge/-/TypeScript/blue?icon=typescript&label)
+:atom_symbol: - <b>React-JS</b>
+:purple_heart: - <b>Material-UI</b>
+:nail_care: - <b>Styled Components</b>
+
+## Implementations
+
+:high_brightness: - <b>Context-API</b>
+:iphone: - <b>Responsivity</b>
+:tada: - <b>Deployment</b>
+:envelope_with_arrow: - <b>Api Consuming</b>
+:anchor: - <b>Hooks</b>
+:children_crossing:- <b>Routes</b>
+
+
+
+## Usage
+
+:rocket: You can visit the deployed version <a href="" rel="">Vercel Deployment</a>
+:octocat: Or just clone this repo and...
+* Run yarn to install all the dependencies
+* Run yarn start to executes the application
+* You can consume a different api key just changing the REACT_APP_API_KEY
+* If you prefer use the deployed api, you can use https://api-meritt-test.herokuapp.com/
+* The api of application consumes the route /proofs
+
+
 
 ## Available Scripts
 
