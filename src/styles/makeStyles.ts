@@ -605,7 +605,7 @@ const makeStylesClasses = makeStyles(
 
       containerBookmark: {
         display: 'flex',
-
+        alignItems: 'center',
         width: '100%',
         justifyContent: 'space-between',
       },
