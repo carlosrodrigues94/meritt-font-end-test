@@ -31,8 +31,8 @@ This is a little application that consumes an api to get questions and answers o
 <p>
 :octocat: Or just clone this repo and...
 </p>
-<p>(1) Run ```$yarn``` to install all the dependencies</p>
-<p>(2) Run yarn start to executes the application</p>
+<p>(1) Run $ yarn to install all the dependencies</p>
+<p>(2) Run $ yarn start to executes the application</p>
 <p>(3) You can consume a different api just changing the REACT_APP_API_KEY=</p>
 <p>(4) If you prefer to use the deployed api, you can use https://api-meritt-test.herokuapp.com/</p>
 
