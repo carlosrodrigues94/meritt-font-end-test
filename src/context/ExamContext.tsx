@@ -68,11 +68,12 @@ const ExamProvider: React.FC = ({ children }) => {
   const getQuestions = useCallback(async () => {
     setApiLoading(true);
     const exam = await getExam();
-    console.log('aqui 1');
+    console.log('aqui 1', exam);
 
-    if (!exam) {
+    if (!exam || !exam.length || !exam[0]) {
       throw new Error('Houve um erro eu buscar os dados da api');
     }
+
     console.log('aqui 2');
 
     const questionsIdsMaped = Object.keys(exam[0].questions).map(item => item);
