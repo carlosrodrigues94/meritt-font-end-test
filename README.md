@@ -31,11 +31,12 @@ This is a little application that consumes an api to get questions and answers o
 <p>
 :octocat: Or just clone this repo and...
 </p>
-* Run yarn to install all the dependencies
-* Run yarn start to executes the application
-* You can consume a different api key just changing the REACT_APP_API_KEY
-* If you prefer use the deployed api, you can use https://api-meritt-test.herokuapp.com/
-* The api of application consumes the route /proofs
+<p>(1) Run yarn to install all the dependencies</p>
+<p>(2) Run yarn start to executes the application</p>
+<p>(3) You can consume a different api just changing the REACT_APP_API_KEY=</p>
+<p>(4) If you prefer to use the deployed api, you can use https://api-meritt-test.herokuapp.com/</p>
+
+## Preview
 
 <img src="./phone.gif" style="border-radius:15px; margin:20px 0 20px 30px" />
 
