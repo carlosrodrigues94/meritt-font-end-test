@@ -75,6 +75,20 @@ export const Label = styled.label<ILabelProps>`
     margin: 0;
   }
 
+  b {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 0 0 0;
+    margin: 0 8px 0 0;
+    * {
+      margin: 0;
+    }
+    svg {
+      margin: 0;
+    }
+  }
+
   input {
     display: none;
     background: #000;
@@ -119,6 +133,9 @@ export const Label = styled.label<ILabelProps>`
     strong {
       margin: 0 8px 10px 0;
       font-weight: bold;
+    }
+    p {
+      margin: 0 0 6px 0;
     }
   }
 `;

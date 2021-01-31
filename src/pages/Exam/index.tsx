@@ -206,13 +206,16 @@ const Exam: React.FC = () => {
                         handleAnswerQuestion(answer.id_question, answer.id);
                       }}
                     />
-                    {questionsAnswered.find(
-                      question => question.answerId === answer.id,
-                    ) ? (
-                      <RadioButtonCheckedIcon className="icon-radio" />
-                    ) : (
-                      <RadioButtonUncheckedIcon className="icon-radio" />
-                    )}
+
+                    <b>
+                      {questionsAnswered.find(
+                        question => question.answerId === answer.id,
+                      ) ? (
+                        <RadioButtonCheckedIcon className="icon-radio" />
+                      ) : (
+                        <RadioButtonUncheckedIcon className="icon-radio" />
+                      )}
+                    </b>
                     <div>{htmlParser(answer.value)}</div>
                     <ButtonThreeDots
                       onClickUnMarkOption={() => handleIgnoreAnswer(answer.id)}
